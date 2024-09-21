@@ -32,6 +32,6 @@ namespace ProdProg_ExamenPromedio1
             CostoMantenimiento += 100;
         }
 
-        public abstract void AumentarDesarrollo();
+        public abstract void AumentarDesarrollo(Poblacion poblacion);
     }
 }
