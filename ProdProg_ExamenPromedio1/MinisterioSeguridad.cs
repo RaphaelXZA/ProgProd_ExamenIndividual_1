@@ -8,18 +8,23 @@ namespace ProdProg_ExamenPromedio1
 {
     internal class MinisterioSeguridad : Ministerio
     {
-        public MinisterioSeguridad(string tipo, int nivel, int vida, int costoCreacion, int costoMantenimiento, int cantidadAumentoDesarrollo) : base(tipo, nivel, vida, costoCreacion, costoMantenimiento, cantidadAumentoDesarrollo)
+        public MinisterioSeguridad(string tipo, int nivel, int vida, int costoCreacion, int costoMantenimiento, int cantidadAumentoDesarrollo, int costoMinimoInversion) : base(tipo, nivel, vida, costoCreacion, costoMantenimiento, cantidadAumentoDesarrollo, costoMinimoInversion)
         {
         }
 
         public override void AumentarDesarrollo(Poblacion poblacion)
         {
-            poblacion.desarrolloSeguridad += CantidadAumentoDesarrollo;
+            poblacion.DesarrolloSeguridad += CantidadAumentoDesarrollo;
 
-            if (poblacion.desarrolloSeguridad > 100)
+            if (poblacion.DesarrolloSeguridad > 100)
             {
-                poblacion.desarrolloSeguridad = 100;
+                poblacion.DesarrolloSeguridad = 100;
             }
+        }
+
+        public override void Destruir(Gobierno gobierno)
+        {
+            gobierno.MinisterioSeguridad = null;
         }
     }
 }
