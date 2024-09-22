@@ -8,18 +8,23 @@ namespace ProdProg_ExamenPromedio1
 {
     internal class MinisterioAgricultura : Ministerio
     {
-        public MinisterioAgricultura(string tipo, int nivel, int vida, int costoCreacion, int costoMantenimiento, int cantidadAumentoDesarrollo) : base(tipo, nivel, vida, costoCreacion, costoMantenimiento, cantidadAumentoDesarrollo)
+        public MinisterioAgricultura(string tipo, int nivel, int vida, int costoCreacion, int costoMantenimiento, int cantidadAumentoDesarrollo, int costoMinimoInversion) : base(tipo, nivel, vida, costoCreacion, costoMantenimiento, cantidadAumentoDesarrollo, costoMinimoInversion)
         {
         }
 
         public override void AumentarDesarrollo(Poblacion poblacion)
         {
-            poblacion.desarrolloAgricultura += CantidadAumentoDesarrollo;
+            poblacion.DesarrolloAgricultura += CantidadAumentoDesarrollo;
 
-            if (poblacion.desarrolloAgricultura > 100)
+            if (poblacion.DesarrolloAgricultura > 100)
             {
-                poblacion.desarrolloAgricultura = 100;
+                poblacion.DesarrolloAgricultura = 100;
             }
+        }
+
+        public override void Destruir(Gobierno gobierno)
+        {
+            gobierno.MinisterioAgricultura = null;
         }
     }
 }
