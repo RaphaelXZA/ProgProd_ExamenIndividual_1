@@ -35,7 +35,7 @@ namespace ProdProg_ExamenPromedio1
             Dinero += impuestosAdicionales;
             poblacion.Dinero -= impuestosAdicionales;
 
-            Console.WriteLine($"Haz cobrado {impuestosAdicionales} en impuestos adicionales a tu pueblo. ¡No abuses!\n");
+            Console.WriteLine($"\nHaz cobrado {impuestosAdicionales} en impuestos adicionales a tu pueblo. ¡No abuses!\n");
 
             //10% de probabilidad de REVOLUCION
             Random rnd = new Random();

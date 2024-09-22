@@ -57,8 +57,7 @@ namespace ProdProg_ExamenPromedio1
             {
                 Console.WriteLine($"- {ministerio.Tipo}: Nivel {ministerio.Nivel}, Vida {ministerio.Vida}");
             }
-            Console.WriteLine(); //LINEA VACIA PARA ESPACIO
-            Console.WriteLine("Desarrollo de tu Poblacion: \n");
+            Console.WriteLine("\nDesarrollo de tu Poblacion: \n");
             Console.WriteLine($"Educacion: {Poblacion.DesarrolloEducacion}/100");
             Console.WriteLine($"Seguridad: {Poblacion.DesarrolloSeguridad}/100");
             Console.WriteLine($"Agricultura: {Poblacion.DesarrolloAgricultura}/100");
@@ -103,7 +102,7 @@ namespace ProdProg_ExamenPromedio1
             int accion;
             while (!int.TryParse(Console.ReadLine(), out accion) || accion < 1 || accion > 4)
             {
-                Console.WriteLine("Opcion inválida. Por favor, ingrese un número que se encuentre en la lista de opciones.\n");
+                Console.WriteLine("\nOpcion inválida. Por favor, ingrese un número que se encuentre en la lista de opciones.\n");
             }
 
             switch (accion)
@@ -130,7 +129,7 @@ namespace ProdProg_ExamenPromedio1
                     PasoElTurno = true;
                     break;
                 default:
-                    Console.WriteLine("Opción invalida. Intenta de nuevo.\n");
+                    Console.WriteLine("\nOpción invalida. Intenta de nuevo.\n");
                     break;
             }
         }
@@ -144,7 +143,7 @@ namespace ProdProg_ExamenPromedio1
                 return;
             }
 
-            Console.WriteLine("Elige un ministerio para construir:\n");
+            Console.WriteLine("\nElige un ministerio para construir:\n");
             Console.WriteLine("1. Educación. Costo: 300");
             Console.WriteLine("2. Salud. Costo: 300");
             Console.WriteLine("3. Seguridad. Costo: 300");
@@ -154,7 +153,7 @@ namespace ProdProg_ExamenPromedio1
             int eleccion;
             while (!int.TryParse(Console.ReadLine(), out eleccion) || eleccion < 1 || eleccion > 5)
             {
-                Console.WriteLine("Opcion inválida. Por favor, ingrese un número que se encuentre en la lista de opciones.\n");
+                Console.WriteLine("\nOpcion inválida. Por favor, ingrese un número que se encuentre en la lista de opciones.\n");
             }
             Ministerio? nuevoMinisterio = null;
 
@@ -180,12 +179,12 @@ namespace ProdProg_ExamenPromedio1
             {
                 if (Gobierno.ConstruirMinisterio(nuevoMinisterio))
                 {
-                    Console.WriteLine($"Has gastado {nuevoMinisterio.CostoCreacion}.");
+                    Console.WriteLine($"\nHas gastado {nuevoMinisterio.CostoCreacion}.\n");
                     Console.WriteLine($"¡Ministerio de {nuevoMinisterio.Tipo} construido con éxito!.\n");
                 }
                 else
                 {
-                    Console.WriteLine("No se pudo construir el ministerio. Verifica si ya existe o si tienes suficiente dinero.\n");
+                    Console.WriteLine("\nNo se pudo construir el ministerio. Verifica si ya existe o si tienes suficiente dinero.\n");
                 }
             }
         }
@@ -195,17 +194,16 @@ namespace ProdProg_ExamenPromedio1
             var ministeriosActivos = Gobierno.ObtenerMinisteriosActivos().ToList();
             if (ministeriosActivos.Count == 0)
             {
-                Console.WriteLine("No hay ministerios para invertir.\n");
+                Console.WriteLine("\nNo hay ministerios para invertir.\n");
                 return;
             }
 
-            Console.WriteLine("Elige un ministerio para invertir:\n");
+            Console.WriteLine("\nElige un ministerio para invertir:\n");
             for (int i = 0; i < ministeriosActivos.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {ministeriosActivos[i].Tipo}");
             }
-            Console.WriteLine(); //LINEA VACIA PARA ESPACIO
-            Console.WriteLine("5. Volver\n");
+            Console.WriteLine("\n5. Volver\n");
 
             int eleccion;
             while (true)
@@ -218,7 +216,7 @@ namespace ProdProg_ExamenPromedio1
                 {
                     return;
                 }
-                Console.WriteLine("Opción inválida. Por favor, elige un número de la lista de opciones.\n");
+                Console.WriteLine("\nOpción inválida. Por favor, elige un número de la lista de opciones.\n");
             }
 
             var ministerioElegido = ministeriosActivos[eleccion - 1];
@@ -233,19 +231,19 @@ namespace ProdProg_ExamenPromedio1
                 {
                     break;
                 }
-                Console.WriteLine("Opción inválida. Por favor, elige 1 para Sí o 2 para No.");
+                Console.WriteLine("\nOpción inválida. Por favor, elige 1 para Sí o 2 para No.");
             }
 
             if (decision == 1)
             {
                 if (Gobierno.InvertirEnMinisterio(ministerioElegido))
                 {
-                    Console.WriteLine($"Has invertido {ministerioElegido.CostoMinimoInversion} en el Ministerio de {ministerioElegido.Tipo}.");
+                    Console.WriteLine($"\nHas invertido {ministerioElegido.CostoMinimoInversion} en el Ministerio de {ministerioElegido.Tipo}.\n");
                     Console.WriteLine($"¡El Ministerio de {ministerioElegido.Tipo} ha subido de nivel!\n");
                 }
                 else
                 {
-                    Console.WriteLine("No se pudo realizar la inversión.\n");
+                    Console.WriteLine("\nNo se pudo realizar la inversión.\n");
                 }
             }
             else
